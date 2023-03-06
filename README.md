@@ -1,3 +1,44 @@
+# Updates
+
+## Installation
+
+- Updated **Dockerfile** to install the following:
+  - Python 3.7.0
+  - Pytorch 1.1.0 for CUDA 9.0
+  - [Flowiz](https://github.com/georgegach/flowiz)
+
+
+    # get flownet2-pytorch source
+    git clone https://github.com/jgoco/flownet2-pytorch.git
+    cd flownet2-pytorch
+    
+    # create Docker container
+    docker build -t flownet2 .
+    docker run -it --volume=$HOME/:/workspace --volume=/mnt/nas-server/:/dataset --volume=/data/:/storage --name=flownet2 --gpus=all --shm-size=2gb flownet2 bash
+
+    # install custom layers
+    bash install.sh
+
+## Inference
+
+- Example using pretrained FlowNet2: [download here](https://drive.google.com/file/d/1hF8vS6YeHkx3j2pfCeQqqZGwA_PJq_Da/view?usp=sharing)
+- Fixed multi-GPU skipping data using [pull request](https://github.com/NVIDIA/flownet2-pytorch/pull/107)
+- [TODO] Updated **main.py** to be imported as a module
+
+
+    # download pretrained models into directory
+    mkdir pretrained_model
+
+    # download dataset into directory
+    mkdir dataset
+
+    # [A] run FlowNet2 through command line
+    python3 main.py --inference --model FlowNet2 --save_flow --inference_dataset ImagesFromFolder --inference_dataset_root dataset/frame_sample --resume pretrained_models/FlowNet2_checkpoint.pth.tar --save results/trial1
+
+    # [B] run FlowNet2 through imported module
+
+---
+
 # flownet2-pytorch 
 
 Pytorch implementation of [FlowNet 2.0: Evolution of Optical Flow Estimation with Deep Networks](https://arxiv.org/abs/1612.01925). 
