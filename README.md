@@ -23,7 +23,7 @@
 
 - Example using pretrained FlowNet2: [download here](https://drive.google.com/file/d/1hF8vS6YeHkx3j2pfCeQqqZGwA_PJq_Da/view?usp=sharing)
 - Fixed multi-GPU skipping data using [pull request](https://github.com/NVIDIA/flownet2-pytorch/pull/107)
-- [TODO] Updated **main.py** to be imported as a module
+- Updated **main.py** to be imported as a module
 
 
     # download pretrained models into directory
