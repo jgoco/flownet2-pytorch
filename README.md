@@ -11,13 +11,14 @@
     # get flownet2-pytorch source
     git clone https://github.com/jgoco/flownet2-pytorch.git
     cd flownet2-pytorch
-    
+
     # create Docker container
     docker build -t flownet2 .
     docker run -it --volume=$HOME/:/workspace --volume=/mnt/nas-server/:/dataset --volume=/data/:/storage --name=flownet2 --gpus=all --shm-size=2gb flownet2 bash
 
     # install custom layers
     bash install.sh
+
 
 ## Inference
 
@@ -36,6 +37,7 @@
     python3 main.py --inference --model FlowNet2 --save_flow --inference_dataset ImagesFromFolder --inference_dataset_root dataset/frame_sample --resume pretrained_models/FlowNet2_checkpoint.pth.tar --save results/trial1
 
     # [B] run FlowNet2 through imported module
+
 
 ---
 
