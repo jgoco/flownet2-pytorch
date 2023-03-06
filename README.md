@@ -1,3 +1,26 @@
+# Updated
+
+## Installation 
+
+ - Updated **Dockerfile** to install the following:
+   - Python 3.7.0
+   - Pytorch 1.1.0 for CUDA 9.0
+   - [Flowiz](https://github.com/georgegach/flowiz)
+
+
+    # get flownet2-pytorch source
+    git clone https://github.com/jgoco/flownet2-pytorch.git
+    cd flownet2-pytorch
+
+    # create Docker container
+    docker build -t flownet2 .
+    docker run -it --volume=$HOME/:/workspace --volume=/mnt/nas-server/:/dataset --volume=/data/:/storage --name=flownet2 --gpus=all --shm-size=2gb flownet2 bash
+
+    # install custom layers
+    bash install.sh
+
+---
+
 # flownet2-pytorch 
 
 Pytorch implementation of [FlowNet 2.0: Evolution of Optical Flow Estimation with Deep Networks](https://arxiv.org/abs/1612.01925). 
