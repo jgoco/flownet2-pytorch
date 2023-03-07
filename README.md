@@ -1,7 +1,6 @@
+# Updates
 
-# Updated
-
-## Installation 
+## Installation
 
  - Updated **Dockerfile** to install the following:
    - Python 3.7.0
@@ -20,6 +19,25 @@
 
     # install custom layers
     bash install.sh
+```
+
+## Inference
+
+- Example using pretrained FlowNet2: [download here](https://drive.google.com/file/d/1hF8vS6YeHkx3j2pfCeQqqZGwA_PJq_Da/view?usp=sharing)
+- Fixed multi-GPU skipping data using [pull request](https://github.com/NVIDIA/flownet2-pytorch/pull/107)
+- Updated **main.py** to be imported as a module
+
+```
+    # download pretrained models into directory
+    mkdir pretrained_model
+
+    # download dataset into directory
+    mkdir dataset
+
+    # [A] run FlowNet2 through command line
+    python3 main.py --inference --model FlowNet2 --save_flow --inference_dataset ImagesFromFolder --inference_dataset_root dataset/frame_sample --resume pretrained_models/FlowNet2_checkpoint.pth.tar --save results/trial1
+
+    # [B] run FlowNet2 through imported module
 ```
 
 ---
