@@ -2,12 +2,13 @@
 
 ## Installation
 
-- Updated **Dockerfile** to install the following:
-  - Python 3.7.0
-  - Pytorch 1.1.0 for CUDA 9.0
-  - [Flowiz](https://github.com/georgegach/flowiz)
+ - Updated **Dockerfile** to install the following:
+   - Python 3.7.0
+   - Pytorch 1.1.0 for CUDA 9.0
+   - [Flowiz](https://github.com/georgegach/flowiz)
+   - [OpenCV](https://pypi.org/project/opencv-python/)
 
-
+```
     # get flownet2-pytorch source
     git clone https://github.com/jgoco/flownet2-pytorch.git
     cd flownet2-pytorch
@@ -18,7 +19,7 @@
 
     # install custom layers
     bash install.sh
-
+```
 
 ## Inference
 
@@ -26,7 +27,7 @@
 - Fixed multi-GPU skipping data using [pull request](https://github.com/NVIDIA/flownet2-pytorch/pull/107)
 - Updated **main.py** to be imported as a module
 
-
+```
     # download pretrained models into directory
     mkdir pretrained_model
 
@@ -37,7 +38,7 @@
     python3 main.py --inference --model FlowNet2 --save_flow --inference_dataset ImagesFromFolder --inference_dataset_root dataset/frame_sample --resume pretrained_models/FlowNet2_checkpoint.pth.tar --save results/trial1
 
     # [B] run FlowNet2 through imported module
-
+```
 
 ---
 
