@@ -19,7 +19,7 @@ from utils import flow_utils, tools
 # fp32 copy of parameters for update
 global param_copy
 
-def main(args):
+def main():
     parser = argparse.ArgumentParser()
 
     parser.add_argument('--start_epoch', type=int, default=1)
@@ -94,7 +94,7 @@ def main(args):
 
     # Parse the official arguments
     with tools.TimerBlock("Parsing Arguments") as block:
-        args = parser.parse_args()
+        args, unkn = parser.parse_known_args()
         if args.number_gpus < 0: args.number_gpus = torch.cuda.device_count()
 
         # Get argument defaults (hastag #thisisahack)
@@ -494,4 +494,4 @@ def main(args):
 if __name__ == '__main__':
     import sys
 
-    main(sys.argv[1:])
+    main()
