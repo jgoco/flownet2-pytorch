@@ -1,3 +1,4 @@
+
 FROM nvidia/cuda:9.0-cudnn7-devel-ubuntu16.04
 MAINTAINER hirakawat
 
@@ -37,4 +38,5 @@ RUN wget https://bootstrap.pypa.io/get-pip.py && python3 get-pip.py && \
         pip3 install torch==1.1.0 torchvision==0.3.0 -f https://download.pytorch.org/whl/cu90/torch_stable.html
 
 # install other modules
-RUN pip3 install flowiz -U
+RUN pip3 install flowiz -U && \
+	pip3 install opencv-python

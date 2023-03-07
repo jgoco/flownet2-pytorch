@@ -1,3 +1,4 @@
+
 # Updated
 
 ## Installation 
@@ -6,8 +7,9 @@
    - Python 3.7.0
    - Pytorch 1.1.0 for CUDA 9.0
    - [Flowiz](https://github.com/georgegach/flowiz)
+   - [OpenCV](https://pypi.org/project/opencv-python/)
 
-
+```
     # get flownet2-pytorch source
     git clone https://github.com/jgoco/flownet2-pytorch.git
     cd flownet2-pytorch
@@ -18,6 +20,7 @@
 
     # install custom layers
     bash install.sh
+```
 
 ---
 
