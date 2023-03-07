@@ -25,7 +25,10 @@
 
 - Example using pretrained FlowNet2: [download here](https://drive.google.com/file/d/1hF8vS6YeHkx3j2pfCeQqqZGwA_PJq_Da/view?usp=sharing)
 - Fixed multi-GPU skipping data using [pull request](https://github.com/NVIDIA/flownet2-pytorch/pull/107)
-- Updated **main.py** to be imported as a module
+- Updated **main.py** to be imported as a module and take unrecognized arguments
+- Created flow_script.py to visualize .flo files from a single .mat file
+  - first argument: path to .mat file
+  - second argument: path to directory where results are saved
 
 ```
     # download pretrained models into directory
@@ -38,6 +41,7 @@
     python3 main.py --inference --model FlowNet2 --save_flow --inference_dataset ImagesFromFolder --inference_dataset_root dataset/frame_sample --resume pretrained_models/FlowNet2_checkpoint.pth.tar --save results/trial1
 
     # [B] run FlowNet2 through imported module
+    python3 flow_script.py 'dataset/flow_echo_sample.mat' 'results/trial1' --inference --model FlowNet2 --save_flow --inference_dataset ImagesFromFolder --inference_dataset_root dataset/frame_sample --resume pretrained_models/FlowNet2_checkpoint.pth.tar --save results/trial1
 ```
 
 ---
